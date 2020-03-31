@@ -1,0 +1,11 @@
+---
+applications:
+- name: springwebfluxShilpa
+  disk_quota: 1G
+  instances: 1
+  memory: 1G
+  path: target/attributes-0.0.1-SNAPSHOT.war
+  health-check-type: process
+  buildpack: sap_java_buildpack
+  services:
+    - rabbitmq
