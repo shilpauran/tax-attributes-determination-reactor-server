@@ -6,3 +6,9 @@ spring:
     port: "${vcap.services.rabbitmq.credentials.port}"
     username: "${vcap.services.rabbitmq.credentials.username}"
     virtual_host: "${vcap.services.rabbitmq.credentials.virtual_host:/}"
+    
+redis:
+  credentials:
+    hostname: ${vcap.services.redis.credentials.hostname:10.11.241.101}
+    port: ${vcap.services.redis.credentials.port:36516}
+    password: ${vcap.services.redis.credentials.password:ErOnZmzRj2q82vd0}

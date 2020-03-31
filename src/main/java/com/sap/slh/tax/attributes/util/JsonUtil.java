@@ -1,4 +1,4 @@
-package com.sap.slh.tax.attributes;
+package com.sap.slh.tax.attributes.util;
 
 import java.io.IOException;
 import java.util.List;

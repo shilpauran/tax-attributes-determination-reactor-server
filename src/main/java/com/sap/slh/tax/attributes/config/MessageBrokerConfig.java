@@ -1,7 +1,8 @@
-package com.sap.slh.tax.attributes;
+package com.sap.slh.tax.attributes.config;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -10,6 +11,8 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +22,6 @@ import org.springframework.context.annotation.Configuration;
 @EnableRabbit
 @Configuration
 public class MessageBrokerConfig {
-
 	@Autowired
 	private AmqpAdmin amqpAdmin;
 
@@ -44,8 +46,18 @@ public class MessageBrokerConfig {
 		amqpAdmin.declareBinding(binding);
 	}
 
-	  @Bean
-	    public Jackson2JsonMessageConverter messageConverter() {
-	        return new Jackson2JsonMessageConverter();
-	    }
+	@Bean
+	public Jackson2JsonMessageConverter messageConverter() {
+		return new Jackson2JsonMessageConverter();
+	}
+
+	@Bean
+	public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(CachingConnectionFactory cachingConnectionFactory) {
+		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+		factory.setConnectionFactory(cachingConnectionFactory);
+		factory.setMismatchedQueuesFatal(true);
+		factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+		factory.setMessageConverter(messageConverter());
+		return factory;
+	}
 }
