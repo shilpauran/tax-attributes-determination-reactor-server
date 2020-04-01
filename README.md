@@ -13,12 +13,14 @@ once the message is received, this application communicates with Reactive Redis 
 
 ## Reactive Rabbitmq:
 
-###### Producer:
+	Producer:
+
 	To support aynchronous input/output, the Rabbitmq producer uses ```AsyncRabbitTemplate``` . This template makes the communication to the consumer in a non-blocking stream.
 	please find the client implementaion example here : 
 <https://github.com/shilpauran/tax-attributes-determination-reactor-client>
 	
-###### Consumer:
+	Consumer:
+
 	The consumer accepts the messages and replies to the messages using a listener. ```@RabbitListner``` supports the asychronous input/output in non blocking data stream in an Manual acknowledgement mode, starting with version 2.1. But the return types are restricted to ```Mono<?>``` or ```Listenable<Future>```
 	for more information please visit the page : <https://docs.spring.io/spring-amqp/docs/2.2.5.RELEASE/reference/html/#async-returns>
 	
