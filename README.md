@@ -11,3 +11,6 @@ For more information on Reactive Programming or spring webflux please refer to :
 This demo project acts as a consumer application and accepts the requests as messages. The communication to/from the client is also established in a non-blocking stream by using Rabbitmq(spring amqp).
 once the message is received, this application communicates with Reactive Redis to fetch the required information and the data stream is returned to client application in a non-blocking way.
 ## Reactive Rabbitmq:
+Producer of messages: To support aynchronous input/output, the Rabbitmq producer uses ```AsyncRabbitTemplate``` . This template makes the communication to the consumer in a non-blocking stream.
+please find the client implementaion example here :
+<https://github.com/shilpauran/tax-attributes-determination-reactor-client>
