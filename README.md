@@ -16,5 +16,10 @@ please find the client implementaion example here :
 <https://github.com/shilpauran/tax-attributes-determination-reactor-client>
 
 Consumer of messages: The consumer accepts the messages and replies to the messages using a listener. ```@RabbitListner``` supports the asychronous input/output in non blocking data stream in an Manual acknowledgement mode, starting with version 2.1. But the return types are restricted to ```Mono<?>``` or ```Listenable<Future>```
-For more information please visit the page : 
-<https://docs.spring.io/spring-amqp/docs/2.2.5.RELEASE/reference/html/#async-returns>
+For more information please visit the pages : 
+<https://docs.spring.io/spring-amqp/docs/2.2.5.RELEASE/reference/html/#async-returns> and <https://stackoverflow.com/questions/60936809/add-non-blocking-consumer-using-asyncrabbittemplate/60937283#60937283>
+
+## Reactive Redis:
+Reactive Redis has rich set of libraries which includes ```ReactiveRedisConnectionFactory``` - a thread safe factory for reactive redis connections,
+```ReactiveRedisTemplate``` - a central abstraction for reactive Redis data access . This template performs automatic serialization/deserialization between the given objects,
+```ReactiveRedisOperations``` - an Interface that supports basic set of Redis operation. it is also useful option for extensibility and testability.
