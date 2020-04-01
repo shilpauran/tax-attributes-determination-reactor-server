@@ -23,3 +23,8 @@ For more information please visit the pages :
 Reactive Redis has rich set of libraries which includes ```ReactiveRedisConnectionFactory``` - a thread safe factory for reactive redis connections,
 ```ReactiveRedisTemplate``` - a central abstraction for reactive Redis data access . This template performs automatic serialization/deserialization between the given objects,
 ```ReactiveRedisOperations``` - an Interface that supports basic set of Redis operation. it is also useful option for extensibility and testability.
+For more information on Reactive Redis:
+<https://spring.io/guides/gs/spring-data-reactive-redis/>
+
+## Other References:
+<https://projectreactor.io/docs>
